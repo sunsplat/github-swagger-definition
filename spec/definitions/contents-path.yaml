@@ -1,0 +1,31 @@
+properties:
+  _links:
+    properties:
+      git:
+        type: string
+      html:
+        type: string
+      self:
+        type: string
+    type: object
+  content:
+    type: string
+  encoding:
+    type: string
+  git_url:
+    type: string
+  html_url:
+    type: string
+  name:
+    type: string
+  path:
+    type: string
+  sha:
+    type: string
+  size:
+    type: integer
+  type:
+    type: string
+  url:
+    type: string
+type: object

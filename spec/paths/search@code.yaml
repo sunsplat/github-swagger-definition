@@ -1,0 +1,95 @@
+get:
+  description: Search code.
+  parameters:
+    - default: desc
+      description: The sort field. if sort param is provided. Can be either asc or desc.
+      enum:
+        - desc
+        - asc
+      in: query
+      name: order
+      type: string
+    - description: >
+        The search terms. This can be any combination of the supported code
+
+        search parameters:
+
+        'Search In' Qualifies which fields are searched. With this qualifier
+
+        you can restrict the search to just the file contents, the file path,
+
+        or both.
+
+        'Languages' Searches code based on the language it's written in.
+
+        'Forks' Filters repositories based on the number of forks, and/or
+
+        whether code from forked repositories should be included in the results
+
+        at all.
+
+        'Size' Finds files that match a certain size (in bytes).
+
+        'Path' Specifies the path that the resulting file must be at.
+
+        'Extension' Matches files with a certain extension.
+
+        'Users' or 'Repositories' Limits searches to a specific user or
+        repository.
+      in: query
+      name: q
+      required: true
+      type: string
+    - description: >
+        Can only be 'indexed', which indicates how recently a file has been
+        indexed
+
+        by the GitHub search infrastructure. If not provided, results are sorted
+
+        by best match.
+      enum:
+        - indexed
+      in: query
+      name: sort
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+      schema:
+        $ref: '#/definitions/search-code'
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer

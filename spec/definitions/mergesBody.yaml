@@ -1,0 +1,8 @@
+properties:
+  base:
+    type: string
+  commit_message:
+    type: string
+  head:
+    type: string
+type: object

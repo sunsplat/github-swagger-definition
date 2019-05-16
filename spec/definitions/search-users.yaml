@@ -1,0 +1,6 @@
+properties:
+  items:
+    $ref: '#/definitions/users'
+  total_count:
+    type: integer
+type: object

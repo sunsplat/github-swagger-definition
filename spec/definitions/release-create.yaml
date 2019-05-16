@@ -1,0 +1,14 @@
+properties:
+  body:
+    type: string
+  draft:
+    type: boolean
+  name:
+    type: string
+  prerelease:
+    type: boolean
+  tag_name:
+    type: string
+  target_commitish:
+    type: string
+type: object

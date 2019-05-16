@@ -1,0 +1,97 @@
+get:
+  description: |
+    List issues.
+    List all issues across owned and member repositories for the authenticated
+    user.
+  parameters:
+    - default: all
+      description: |
+        Issues assigned to you / created by you / mentioning you / you're
+        subscribed to updates for / All issues the authenticated user can see
+      enum:
+        - assigned
+        - created
+        - mentioned
+        - subscribed
+        - all
+      in: query
+      name: filter
+      required: true
+      type: string
+    - default: open
+      enum:
+        - open
+        - closed
+      in: query
+      name: state
+      required: true
+      type: string
+    - description: 'String list of comma separated Label names. Example - bug,ui,@high.'
+      in: query
+      name: labels
+      required: true
+      type: string
+    - default: created
+      enum:
+        - created
+        - updated
+        - comments
+      in: query
+      name: sort
+      required: true
+      type: string
+    - default: desc
+      enum:
+        - asc
+        - desc
+      in: query
+      name: direction
+      required: true
+      type: string
+    - description: |
+        Optional string of a timestamp in ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ.
+        Only issues updated at or after this time are returned.
+      in: query
+      name: since
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+      schema:
+        $ref: '#/definitions/issues'
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer

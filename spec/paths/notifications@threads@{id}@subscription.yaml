@@ -1,0 +1,159 @@
+delete:
+  description: Delete a Thread Subscription.
+  parameters:
+    - description: Id of thread.
+      in: path
+      name: id
+      required: true
+      type: integer
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '204':
+      description: |
+        No Content
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+get:
+  description: Get a Thread Subscription.
+  parameters:
+    - description: Id of thread.
+      in: path
+      name: id
+      required: true
+      type: integer
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+      schema:
+        $ref: '#/definitions/subscription'
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+put:
+  description: >
+    Set a Thread Subscription.
+
+    This lets you subscribe to a thread, or ignore it. Subscribing to a thread
+
+    is unnecessary if the user is already subscribed to the repository. Ignoring
+
+    a thread will mute all future notifications (until you comment or get
+    @mentioned).
+  parameters:
+    - description: Id of thread.
+      in: path
+      name: id
+      required: true
+      type: integer
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+    - in: body
+      name: body
+      required: true
+      schema:
+        $ref: '#/definitions/putSubscription'
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+      schema:
+        $ref: '#/definitions/subscription'
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer

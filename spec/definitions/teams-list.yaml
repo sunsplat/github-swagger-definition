@@ -1,0 +1,27 @@
+items:
+  properties:
+    id:
+      type: integer
+    members_count:
+      type: integer
+    name:
+      type: string
+    organization:
+      properties:
+        avatar_url:
+          type: string
+        id:
+          type: integer
+        login:
+          type: string
+        url:
+          type: string
+      type: object
+    permission:
+      type: string
+    repos_count:
+      type: integer
+    url:
+      type: string
+  type: object
+type: array

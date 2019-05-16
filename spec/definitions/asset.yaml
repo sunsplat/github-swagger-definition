@@ -1,0 +1,24 @@
+properties:
+  content_type:
+    type: string
+  created_at:
+    type: string
+  download_count:
+    type: number
+  id:
+    type: number
+  label:
+    type: string
+  name:
+    type: string
+  size:
+    type: number
+  state:
+    type: string
+  updated_at:
+    type: string
+  uploader:
+    $ref: '#/definitions/user'
+  url:
+    type: string
+type: object

@@ -1,0 +1,3 @@
+additionalProperties:
+  type: integer
+type: object

@@ -1,0 +1,26 @@
+properties:
+  body:
+    type: string
+  commit_id:
+    type: string
+  created_at:
+    description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+    type: string
+  html_url:
+    type: string
+  id:
+    type: integer
+  line:
+    type: integer
+  path:
+    type: string
+  position:
+    type: integer
+  updated_at:
+    description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+    type: string
+  url:
+    type: string
+  user:
+    $ref: '#/definitions/user'
+type: object

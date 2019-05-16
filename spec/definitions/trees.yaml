@@ -1,0 +1,13 @@
+properties:
+  base_tree:
+    type: string
+  sha:
+    description: SHA1 checksum ID of the object in the tree.
+    type: string
+  tree:
+    items:
+      $ref: '#/definitions/tree'
+    type: array
+  url:
+    type: string
+type: object

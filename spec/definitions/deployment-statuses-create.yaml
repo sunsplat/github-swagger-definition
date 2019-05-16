@@ -1,0 +1,8 @@
+properties:
+  description:
+    type: string
+  state:
+    type: string
+  target_url:
+    type: string
+type: object

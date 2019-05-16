@@ -1,0 +1,6 @@
+properties:
+  key:
+    type: string
+  title:
+    type: string
+type: object

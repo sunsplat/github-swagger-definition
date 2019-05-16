@@ -1,0 +1,6 @@
+properties:
+  ignored:
+    type: boolean
+  subscribed:
+    type: boolean
+type: object

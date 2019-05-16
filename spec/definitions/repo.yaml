@@ -1,0 +1,79 @@
+properties:
+  clone_url:
+    type: string
+  created_at:
+    description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+    type: string
+  description:
+    type: string
+  fork:
+    type: boolean
+  forks:
+    type: integer
+  forks_count:
+    type: integer
+  full_name:
+    type: string
+  git_url:
+    type: string
+  has_downloads:
+    type: boolean
+  has_issues:
+    type: boolean
+  has_wiki:
+    type: boolean
+  homepage:
+    type: string
+  html_url:
+    type: string
+  id:
+    type: integer
+  language:
+    type: string
+  master_branch:
+    type: string
+  mirror_url:
+    type: string
+  name:
+    type: string
+  open_issues:
+    type: integer
+  open_issues_count:
+    type: integer
+  organization:
+    $ref: '#/definitions/organization'
+  owner:
+    $ref: '#/definitions/actor'
+  parent:
+    allOf:
+      - $ref: '#/definitions/repo'
+      - description: >-
+          Is present when the repo is a fork. Parent is the repo this repo was
+          forked from.
+  private:
+    type: boolean
+  pushed_at:
+    description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+    type: string
+  size:
+    type: integer
+  source:
+    allOf:
+      - $ref: '#/definitions/repo'
+      - description: >-
+          Is present when the repo is a fork. Source is the ultimate source for
+          the network.
+  ssh_url:
+    type: string
+  svn_url:
+    type: string
+  updated_at:
+    description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+    type: string
+  url:
+    type: string
+  watchers:
+    type: integer
+  watchers_count:
+    type: integer
+type: object

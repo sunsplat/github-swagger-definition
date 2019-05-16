@@ -1,0 +1,6 @@
+properties:
+  state:
+    type: string
+  url:
+    type: string
+type: object

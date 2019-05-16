@@ -1,0 +1,15 @@
+items:
+  properties:
+    body:
+      type: string
+    created_at:
+      description: ISO 8601.
+      type: string
+    id:
+      type: integer
+    url:
+      type: string
+    user:
+      $ref: '#/definitions/user'
+  type: object
+type: array

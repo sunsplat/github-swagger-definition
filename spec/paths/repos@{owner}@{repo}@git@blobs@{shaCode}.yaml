@@ -1,0 +1,64 @@
+get:
+  description: |
+    Get a Blob.
+    Since blobs can be any arbitrary binary data, the input and responses for
+    the blob API takes an encoding parameter that can be either utf-8 or
+    base64. If your data cannot be losslessly sent as a UTF-8 string, you can
+    base64 encode it.
+  parameters:
+    - description: Name of repository owner.
+      in: path
+      name: owner
+      required: true
+      type: string
+    - description: Name of repository.
+      in: path
+      name: repo
+      required: true
+      type: string
+    - description: SHA-1 code.
+      in: path
+      name: shaCode
+      required: true
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+      schema:
+        $ref: '#/definitions/blob'
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer

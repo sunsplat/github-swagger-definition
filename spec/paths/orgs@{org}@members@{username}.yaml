@@ -1,0 +1,148 @@
+delete:
+  description: |
+    Remove a member.
+    Removing a user from this list will remove them from all teams and they
+    will no longer have any access to the organization's repositories.
+  parameters:
+    - description: Name of organisation.
+      in: path
+      name: org
+      required: true
+      type: string
+    - description: Name of the user.
+      in: path
+      name: username
+      required: true
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '204':
+      description: |
+        No content.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+get:
+  description: 'Check if a user is, publicly or privately, a member of the organization.'
+  parameters:
+    - description: Name of organisation.
+      in: path
+      name: org
+      required: true
+      type: string
+    - description: Name of the user.
+      in: path
+      name: username
+      required: true
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '204':
+      description: >
+        No content. Response if requester is an organization member and user is
+        a member
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+    '302':
+      description: |
+        Found. Response if requester is not an organization member
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+    '404':
+      description: >
+        Not Found.
+
+        a. Response if requester is an organization member and user is not a
+        member
+
+        b. Response if requester is not an organization member and is inquiring
+        about themselves
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer

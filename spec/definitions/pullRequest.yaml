@@ -1,0 +1,141 @@
+properties:
+  _links:
+    properties:
+      comments:
+        properties:
+          href:
+            type: string
+        type: object
+      html:
+        properties:
+          href:
+            type: string
+        type: object
+      review_comments:
+        properties:
+          href:
+            type: string
+        type: object
+      self:
+        properties:
+          href:
+            type: string
+        type: object
+    type: object
+  additions:
+    type: integer
+  base:
+    properties:
+      label:
+        type: string
+      ref:
+        type: string
+      repo:
+        $ref: '#/definitions/repo'
+      sha:
+        type: string
+      user:
+        properties:
+          avatar_url:
+            type: string
+          gravatar_id:
+            type: string
+          id:
+            type: integer
+          login:
+            type: string
+          url:
+            type: string
+        type: object
+    type: object
+  body:
+    type: string
+  changed_files:
+    type: integer
+  closed_at:
+    type: string
+  comments:
+    type: integer
+  commits:
+    type: integer
+  created_at:
+    type: string
+  deletions:
+    type: integer
+  diff_url:
+    type: string
+  head:
+    properties:
+      label:
+        type: string
+      ref:
+        type: string
+      repo:
+        $ref: '#/definitions/repo'
+      sha:
+        type: string
+      user:
+        properties:
+          avatar_url:
+            type: string
+          gravatar_id:
+            type: string
+          id:
+            type: integer
+          login:
+            type: string
+          url:
+            type: string
+        type: object
+    type: object
+  html_url:
+    type: string
+  issue_url:
+    type: string
+  merge_commit_sha:
+    type: string
+  mergeable:
+    type: boolean
+  merged:
+    type: boolean
+  merged_at:
+    type: string
+  merged_by:
+    properties:
+      avatar_url:
+        type: string
+      gravatar_id:
+        type: string
+      id:
+        type: integer
+      login:
+        type: string
+      url:
+        type: string
+    type: object
+  number:
+    type: integer
+  patch_url:
+    type: string
+  state:
+    type: string
+  title:
+    type: string
+  updated_at:
+    type: string
+  url:
+    type: string
+  user:
+    properties:
+      avatar_url:
+        type: string
+      gravatar_id:
+        type: string
+      id:
+        type: integer
+      login:
+        type: string
+      url:
+        type: string
+    type: object
+type: object

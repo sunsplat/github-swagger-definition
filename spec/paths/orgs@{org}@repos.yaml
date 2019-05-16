@@ -1,0 +1,116 @@
+get:
+  description: List repositories for the specified org.
+  parameters:
+    - description: Name of organisation.
+      in: path
+      name: org
+      required: true
+      type: string
+    - default: all
+      enum:
+        - all
+        - public
+        - private
+        - forks
+        - sources
+        - member
+      in: query
+      name: type
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+      schema:
+        $ref: '#/definitions/repos'
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+post:
+  description: |
+    Create a new repository for the authenticated user. OAuth users must supply
+    repo scope.
+  parameters:
+    - description: Name of organisation.
+      in: path
+      name: org
+      required: true
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+    - in: body
+      name: body
+      required: true
+      schema:
+        $ref: '#/definitions/postRepo'
+  responses:
+    '201':
+      description: Created
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+      schema:
+        $ref: '#/definitions/repos'
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer

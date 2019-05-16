@@ -1,0 +1,4 @@
+properties:
+  sha:
+    type: string
+type: object

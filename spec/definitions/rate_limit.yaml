@@ -1,0 +1,10 @@
+properties:
+  rate:
+    properties:
+      limit:
+        type: integer
+      remaining:
+        type: integer
+      reset:
+        type: integer
+type: object

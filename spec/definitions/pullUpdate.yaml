@@ -1,0 +1,8 @@
+properties:
+  body:
+    type: string
+  state:
+    type: string
+  title:
+    type: string
+type: object

@@ -1,0 +1,11 @@
+properties:
+  name:
+    type: string
+  permission:
+    enum:
+      - pull
+      - push
+      - admin
+required:
+  - name
+type: object

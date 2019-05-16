@@ -1,0 +1,79 @@
+get:
+  deprecated: true
+  description: >-
+    Find repositories by keyword. Note, this legacy method does not follow the
+    v3 pagination pattern. This method returns up to 100 results per page and
+    pages can be fetched using the start_page parameter.
+  parameters:
+    - description: The search term
+      in: path
+      name: keyword
+      required: true
+      type: string
+    - default: desc
+      description: The sort field. if sort param is provided. Can be either asc or desc.
+      enum:
+        - desc
+        - asc
+      in: query
+      name: order
+      type: string
+    - description: Filter results by language
+      in: query
+      name: language
+      type: string
+    - description: The page number to fetch
+      in: query
+      name: start_page
+      type: string
+    - description: >-
+        The sort field. One of stars, forks, or updated. Default: results are
+        sorted by best match.
+      enum:
+        - updated
+        - stars
+        - forks
+      in: query
+      name: sort
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+      schema:
+        $ref: '#/definitions/search-repositories-by-keyword'
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer

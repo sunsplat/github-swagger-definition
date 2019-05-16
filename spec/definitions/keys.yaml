@@ -1,0 +1,12 @@
+items:
+  properties:
+    id:
+      type: integer
+    key:
+      type: string
+    title:
+      type: string
+    url:
+      type: string
+  type: object
+type: array

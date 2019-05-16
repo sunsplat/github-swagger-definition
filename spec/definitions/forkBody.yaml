@@ -1,0 +1,4 @@
+properties:
+  organization:
+    type: string
+type: object

@@ -1,0 +1,4 @@
+allOf:
+  - $ref: '#/definitions/actor'
+  - description: A GitHub organization
+type: object

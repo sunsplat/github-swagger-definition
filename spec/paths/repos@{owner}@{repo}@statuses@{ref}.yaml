@@ -1,0 +1,127 @@
+get:
+  description: List Statuses for a specific Ref.
+  parameters:
+    - description: Name of repository owner.
+      in: path
+      name: owner
+      required: true
+      type: string
+    - description: Name of repository.
+      in: path
+      name: repo
+      required: true
+      type: string
+    - description: >
+        Ref to list the statuses from. It can be a SHA, a branch name, or a tag
+        name.
+      in: path
+      name: ref
+      required: true
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+      schema:
+        $ref: '#/definitions/ref'
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+post:
+  description: Create a Status.
+  parameters:
+    - description: Name of repository owner.
+      in: path
+      name: owner
+      required: true
+      type: string
+    - description: Name of repository.
+      in: path
+      name: repo
+      required: true
+      type: string
+    - description: >
+        Ref to list the statuses from. It can be a SHA, a branch name, or a tag
+        name.
+      in: path
+      name: ref
+      required: true
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+    - in: body
+      name: body
+      required: true
+      schema:
+        $ref: '#/definitions/headBranch'
+  responses:
+    '201':
+      description: Created
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+      schema:
+        $ref: '#/definitions/ref'
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer

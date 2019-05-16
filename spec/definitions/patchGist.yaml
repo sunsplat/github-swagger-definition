@@ -1,0 +1,25 @@
+properties:
+  description:
+    type: string
+  files:
+    properties:
+      delete_this_file.txt:
+        type: string
+      file1.txt:
+        properties:
+          content:
+            type: string
+        type: object
+      new_file.txt:
+        properties:
+          content:
+            type: string
+        type: object
+      old_name.txt:
+        properties:
+          content:
+            type: string
+          filename:
+            type: string
+        type: object
+type: object

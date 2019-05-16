@@ -1,0 +1,10 @@
+properties:
+  description:
+    type: string
+  due_on:
+    type: string
+  state:
+    type: string
+  title:
+    type: string
+type: object

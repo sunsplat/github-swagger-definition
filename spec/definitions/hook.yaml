@@ -1,0 +1,44 @@
+items:
+  properties:
+    active:
+      type: boolean
+    config:
+      properties:
+        content_type:
+          type: string
+        url:
+          type: string
+      type: object
+    created_at:
+      description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+      type: string
+    events:
+      items:
+        enum:
+          - push
+          - issues
+          - issue_comment
+          - commit_comment
+          - pull_request
+          - pull_request_review_comment
+          - gollum
+          - watch
+          - download
+          - fork
+          - fork_apply
+          - member
+          - public
+          - team_add
+          - status
+      type: array
+    id:
+      type: integer
+    name:
+      type: string
+    updated_at:
+      description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+      type: string
+    url:
+      type: string
+  type: object
+type: array

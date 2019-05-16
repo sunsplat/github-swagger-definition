@@ -1,0 +1,4 @@
+properties:
+  user:
+    $ref: '#/definitions/user'
+type: object

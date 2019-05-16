@@ -1,0 +1,8 @@
+specFileName: github-api-v3.json
+apiTitle: Github
+splitSpec: true
+codeSamples: true
+swaggerUI: true
+travis: true
+repo: sunsplat/github-swagger-definition
+oasVersion: '2.0'

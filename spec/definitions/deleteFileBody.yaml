@@ -1,0 +1,13 @@
+properties:
+  committer:
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+    type: object
+  message:
+    type: string
+  sha:
+    type: string
+type: object

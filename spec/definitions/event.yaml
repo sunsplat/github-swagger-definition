@@ -1,0 +1,26 @@
+properties:
+  actor:
+    $ref: '#/definitions/actor'
+  created_at:
+    type: object
+  id:
+    type: integer
+  org:
+    $ref: '#/definitions/organization'
+  payload:
+    properties: {}
+    type: object
+  public:
+    type: boolean
+  repo:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      url:
+        type: string
+    type: object
+  type:
+    type: string
+type: object

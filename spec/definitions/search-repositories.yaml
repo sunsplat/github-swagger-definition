@@ -1,0 +1,8 @@
+properties:
+  items:
+    items:
+      $ref: '#/definitions/repo'
+    type: array
+  total_count:
+    type: integer
+type: object

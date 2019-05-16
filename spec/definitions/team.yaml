@@ -1,0 +1,14 @@
+properties:
+  id:
+    type: integer
+  members_count:
+    type: integer
+  name:
+    type: string
+  permission:
+    type: string
+  repos_count:
+    type: integer
+  url:
+    type: string
+type: object

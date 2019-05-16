@@ -1,0 +1,83 @@
+properties:
+  author:
+    $ref: '#/definitions/user'
+  commit:
+    properties:
+      author:
+        properties:
+          date:
+            description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+            type: string
+          email:
+            type: string
+          name:
+            type: string
+        type: object
+      committer:
+        properties:
+          date:
+            description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+            type: string
+          email:
+            type: string
+          name:
+            type: string
+        type: object
+      message:
+        type: string
+      tree:
+        properties:
+          sha:
+            type: string
+          url:
+            type: string
+        type: object
+      url:
+        type: string
+    type: object
+  committer:
+    $ref: '#/definitions/user'
+  files:
+    items:
+      properties:
+        additions:
+          type: integer
+        blob_url:
+          type: string
+        changes:
+          type: integer
+        deletions:
+          type: integer
+        filename:
+          type: string
+        patch:
+          type: string
+        raw_url:
+          type: string
+        status:
+          type: string
+      type: object
+    type: array
+  parents:
+    items:
+      properties:
+        sha:
+          type: string
+        url:
+          type: string
+      type: object
+    type: array
+  sha:
+    type: string
+  stats:
+    properties:
+      additions:
+        type: integer
+      deletions:
+        type: integer
+      total:
+        type: integer
+    type: object
+  url:
+    type: string
+type: object

@@ -1,0 +1,35 @@
+properties:
+  issues:
+    items:
+      properties:
+        body:
+          type: string
+        comments:
+          type: integer
+        created_at:
+          type: string
+        gravatar_id:
+          type: string
+        html_url:
+          type: string
+        labels:
+          items:
+            type: string
+          type: array
+        number:
+          type: integer
+        position:
+          type: integer
+        state:
+          type: string
+        title:
+          type: string
+        updated_at:
+          type: string
+        user:
+          type: string
+        votes:
+          type: integer
+      type: object
+    type: array
+type: object

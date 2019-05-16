@@ -1,0 +1,46 @@
+properties:
+  id:
+    type: integer
+  last_read_at:
+    type: string
+  reason:
+    type: string
+  repository:
+    properties:
+      description:
+        type: string
+      fork:
+        type: boolean
+      full_name:
+        type: string
+      html_url:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      owner:
+        $ref: '#/definitions/actor'
+      private:
+        type: boolean
+      url:
+        type: string
+    type: object
+  subject:
+    properties:
+      latest_comment_url:
+        type: string
+      title:
+        type: string
+      type:
+        type: string
+      url:
+        type: string
+    type: object
+  unread:
+    type: boolean
+  updated_at:
+    type: string
+  url:
+    type: string
+type: object

@@ -1,0 +1,33 @@
+items:
+  properties:
+    created_at:
+      description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+      type: string
+    creator:
+      properties:
+        avatar_url:
+          type: string
+        gravatar_id:
+          type: string
+        id:
+          type: integer
+        login:
+          type: string
+        url:
+          type: string
+      type: object
+    description:
+      type: string
+    id:
+      type: integer
+    state:
+      type: string
+    target_url:
+      type: string
+    updated_at:
+      description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+      type: string
+    url:
+      type: string
+  type: object
+type: array

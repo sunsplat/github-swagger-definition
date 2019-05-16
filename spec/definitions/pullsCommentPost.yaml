@@ -1,0 +1,10 @@
+properties:
+  body:
+    type: string
+  commit_id:
+    type: string
+  path:
+    type: string
+  position:
+    type: number
+type: object

@@ -1,0 +1,63 @@
+post:
+  description: |
+    Test a push hook.
+    This will trigger the hook with the latest push to the current repository
+    if the hook is subscribed to push events. If the hook is not subscribed
+    to push events, the server will respond with 204 but no test POST will
+    be generated.
+    Note: Previously /repos/:owner/:repo/hooks/:id/tes
+  parameters:
+    - description: Name of repository owner.
+      in: path
+      name: owner
+      required: true
+      type: string
+    - description: Name of repository.
+      in: path
+      name: repo
+      required: true
+      type: string
+    - description: Id of hook.
+      in: path
+      name: hookId
+      required: true
+      type: integer
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '204':
+      description: Hook is triggered.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer

@@ -1,0 +1,151 @@
+properties:
+  ahead_by:
+    type: integer
+  base_commit:
+    properties:
+      author:
+        $ref: '#/definitions/user'
+      commit:
+        properties:
+          author:
+            properties:
+              date:
+                type: string
+              email:
+                type: string
+              name:
+                type: string
+            type: object
+          committer:
+            properties:
+              date:
+                type: string
+              email:
+                type: string
+              name:
+                type: string
+            type: object
+          message:
+            type: string
+          tree:
+            properties:
+              sha:
+                type: string
+              url:
+                type: string
+            type: object
+          url:
+            type: string
+        type: object
+      committer:
+        $ref: '#/definitions/user'
+      parents:
+        items:
+          properties:
+            sha:
+              type: string
+            url:
+              type: string
+          type: object
+        type: array
+      sha:
+        type: string
+      url:
+        type: string
+    type: object
+  behind_by:
+    type: integer
+  commits:
+    items:
+      properties:
+        author:
+          $ref: '#/definitions/user'
+        commit:
+          properties:
+            author:
+              properties:
+                date:
+                  type: string
+                email:
+                  type: string
+                name:
+                  type: string
+              type: object
+            committer:
+              properties:
+                date:
+                  type: string
+                email:
+                  type: string
+                name:
+                  type: string
+              type: object
+            message:
+              type: string
+            tree:
+              properties:
+                sha:
+                  type: string
+                url:
+                  type: string
+              type: object
+            url:
+              type: string
+          type: object
+        committer:
+          $ref: '#/definitions/user'
+        parents:
+          items:
+            properties:
+              sha:
+                type: string
+              url:
+                type: string
+            type: object
+          type: array
+        sha:
+          type: string
+        url:
+          type: string
+      type: object
+    type: array
+  diff_url:
+    type: string
+  files:
+    items:
+      properties:
+        additions:
+          type: integer
+        blob_url:
+          type: string
+        changes:
+          type: integer
+        contents_url:
+          type: string
+        deletions:
+          type: integer
+        filename:
+          type: string
+        patch:
+          type: string
+        raw_url:
+          type: string
+        sha:
+          type: string
+        status:
+          type: string
+      type: object
+    type: array
+  html_url:
+    type: string
+  patch_url:
+    type: string
+  permalink_url:
+    type: string
+  status:
+    type: string
+  total_commits:
+    type: integer
+  url:
+    type: string
+type: object

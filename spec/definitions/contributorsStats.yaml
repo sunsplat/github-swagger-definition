@@ -1,0 +1,37 @@
+items:
+  properties:
+    author:
+      properties:
+        avatar_url:
+          type: string
+        gravatar_id:
+          type: string
+        id:
+          type: integer
+        login:
+          type: string
+        url:
+          type: string
+      type: object
+    total:
+      description: The Total number of commits authored by the contributor.
+      type: integer
+    weeks:
+      items:
+        properties:
+          a:
+            description: Number of additions.
+            type: integer
+          c:
+            description: Number of commits.
+            type: integer
+          d:
+            description: Number of deletions.
+            type: integer
+          w:
+            description: Start of the week.
+            type: string
+        type: object
+      type: array
+  type: object
+type: array

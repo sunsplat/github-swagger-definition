@@ -1,0 +1,4 @@
+properties:
+  commit_message:
+    type: string
+type: object

@@ -1,0 +1,12 @@
+items:
+  properties:
+    color:
+      maxLength: 6
+      minLength: 6
+      type: string
+    name:
+      type: string
+    url:
+      type: string
+  type: object
+type: array

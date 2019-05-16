@@ -1,0 +1,15 @@
+properties:
+  description:
+    type: string
+  payload:
+    properties:
+      deploy_user:
+        type: string
+      environment:
+        type: string
+      room_id:
+        type: number
+    type: object
+  ref:
+    type: string
+type: object

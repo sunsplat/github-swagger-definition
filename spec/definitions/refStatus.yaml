@@ -1,0 +1,35 @@
+items:
+  properties:
+    commit_url:
+      type: string
+    name:
+      type: string
+    repository_url:
+      type: string
+    sha:
+      type: string
+    state:
+      type: string
+    statuses:
+      items:
+        properties:
+          context:
+            type: string
+          created_at:
+            type: string
+          description:
+            type: string
+          id:
+            type: number
+          state:
+            type: string
+          target_url:
+            type: string
+          updated_at:
+            type: string
+          url:
+            type: string
+        type: object
+      type: array
+  type: object
+type: array

@@ -1,0 +1,22 @@
+items:
+  properties:
+    created_at:
+      type: string
+    creator:
+      $ref: '#/definitions/user'
+    description:
+      type: string
+    id:
+      type: integer
+    payload:
+      type: string
+    sha:
+      type: string
+    statuses_url:
+      type: string
+    updated_at:
+      type: string
+    url:
+      type: string
+  type: object
+type: array

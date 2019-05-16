@@ -1,0 +1,16 @@
+properties:
+  git:
+    items:
+      description: >-
+        An Array of IP addresses in CIDR format specifying the Git servers at
+        GitHub.
+      type: string
+    type: array
+  hooks:
+    items:
+      description: >-
+        An Array of IP addresses in CIDR format specifying the addresses that
+        incoming service hooks will originate from.
+      type: string
+    type: array
+type: object

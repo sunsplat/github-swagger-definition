@@ -1,0 +1,18 @@
+properties:
+  content_type:
+    type: string
+  description:
+    type: string
+  download_count:
+    type: integer
+  html_url:
+    type: string
+  id:
+    type: integer
+  name:
+    type: string
+  size:
+    type: integer
+  url:
+    type: string
+type: object

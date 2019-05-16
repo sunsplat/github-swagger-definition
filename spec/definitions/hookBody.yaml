@@ -1,0 +1,8 @@
+properties:
+  active:
+    type: boolean
+  add_events:
+    items:
+      type: string
+    type: array
+type: object

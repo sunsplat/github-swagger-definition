@@ -1,0 +1,6 @@
+properties:
+  body:
+    type: string
+required:
+  - body
+type: object

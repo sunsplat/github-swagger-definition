@@ -1,0 +1,231 @@
+delete:
+  deprecated: true
+  description: >
+    The "Remove team member" API is deprecated and is scheduled for removal in
+    the next major version of the API. We recommend using the Remove team
+    membership API instead. It allows you to remove both active and pending
+    memberships.
+
+
+    Remove team member.
+
+    In order to remove a user from a team, the authenticated user must have
+    'admin'
+
+    permissions to the team or be an owner of the org that the team is
+    associated
+
+    with.
+
+    NOTE This does not delete the user, it just remove them from the team.
+  parameters:
+    - description: Id of team.
+      in: path
+      name: teamId
+      required: true
+      type: integer
+    - description: Name of a member.
+      in: path
+      name: username
+      required: true
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '204':
+      description: Team member removed.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+get:
+  deprecated: true
+  description: >
+    The "Get team member" API is deprecated and is scheduled for removal in the
+    next major version of the API. We recommend using the Get team membership
+    API instead. It allows you to get both active and pending memberships.
+
+
+    Get team member.
+
+    In order to get if a user is a member of a team, the authenticated user mus
+
+    be a member of the team.
+  parameters:
+    - description: Id of team.
+      in: path
+      name: teamId
+      required: true
+      type: integer
+    - description: Name of a member.
+      in: path
+      name: username
+      required: true
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '204':
+      description: User is a member.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+    '404':
+      description: User is not a member.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+put:
+  deprecated: true
+  description: >
+    The API (described below) is deprecated and is scheduled for removal in the
+    next major version of the API. We recommend using the Add team membership
+    API instead. It allows you to invite new organization members to your teams.
+
+
+    Add team member.
+
+    In order to add a user to a team, the authenticated user must have 'admin'
+
+    permissions to the team or be an owner of the org that the team is
+    associated
+
+    with.
+  parameters:
+    - description: Id of team.
+      in: path
+      name: teamId
+      required: true
+      type: integer
+    - description: Name of a member.
+      in: path
+      name: username
+      required: true
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '204':
+      description: Team member added.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+    '422':
+      description: 'If you attempt to add an organization to a team, you will get this.'
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+      schema:
+        $ref: '#/definitions/organizationAsTeamMember'

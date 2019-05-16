@@ -1,0 +1,26 @@
+properties:
+  closed_issues:
+    type: integer
+  created_at:
+    description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+    type: string
+  creator:
+    $ref: '#/definitions/user'
+  description:
+    type: string
+  due_on:
+    description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+    type: string
+  number:
+    type: integer
+  open_issues:
+    type: integer
+  state:
+    enum:
+      - open
+      - closed
+  title:
+    type: string
+  url:
+    type: string
+type: object

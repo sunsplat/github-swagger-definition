@@ -1,0 +1,15 @@
+properties:
+  errors:
+    items:
+      properties:
+        code:
+          type: string
+        field:
+          type: string
+        resource:
+          type: string
+      type: object
+    type: array
+  message:
+    type: string
+type: object

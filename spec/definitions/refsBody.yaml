@@ -1,0 +1,6 @@
+properties:
+  ref:
+    type: string
+  sha:
+    type: string
+type: object

@@ -1,0 +1,78 @@
+get:
+  description: List commits on a repository.
+  parameters:
+    - description: Name of repository owner.
+      in: path
+      name: owner
+      required: true
+      type: string
+    - description: Name of repository.
+      in: path
+      name: repo
+      required: true
+      type: string
+    - description: >
+        The time should be passed in as UTC in the ISO 8601 format:
+        YYYY-MM-DDTHH:MM:SSZ.
+
+        Example: "2012-10-09T23:39:01Z".
+      in: query
+      name: since
+      type: string
+    - description: Sha or branch to start listing commits from.
+      in: query
+      name: sha
+      type: string
+    - description: Only commits containing this file path will be returned.
+      in: query
+      name: path
+      type: string
+    - description: 'GitHub login, name, or email by which to filter by commit author.'
+      in: query
+      name: author
+      type: string
+    - description: ISO 8601 Date - Only commits before this date will be returned.
+      in: query
+      name: until
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+      schema:
+        $ref: '#/definitions/commits'
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer

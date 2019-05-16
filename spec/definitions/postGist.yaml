@@ -1,0 +1,14 @@
+properties:
+  description:
+    type: string
+  files:
+    properties:
+      file1.txt:
+        properties:
+          content:
+            type: string
+        type: object
+    type: object
+  public:
+    type: boolean
+type: object

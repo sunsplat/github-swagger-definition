@@ -1,0 +1,149 @@
+delete:
+  description: >-
+    In order to remove a repository from a team, the authenticated user must be
+    an owner of the org that the team is associated with. NOTE: This does not
+    delete the repository, it just removes it from the team.
+  parameters:
+    - description: Id of team.
+      in: path
+      name: teamId
+      required: true
+      type: integer
+    - description: Name of a repository owner.
+      in: path
+      name: owner
+      required: true
+      type: string
+    - description: Name of a repository.
+      in: path
+      name: repo
+      required: true
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '204':
+      description: |
+        No content.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+get:
+  description: Check if a team manages a repository
+  parameters:
+    - description: Id of team.
+      in: path
+      name: teamId
+      required: true
+      type: integer
+    - description: Name of a repository owner.
+      in: path
+      name: owner
+      required: true
+      type: string
+    - description: Name of a repository.
+      in: path
+      name: repo
+      required: true
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+put:
+  description: >-
+    In order to add a repository to a team, the authenticated user must be an
+    owner of the org that the team is associated with. Also, the repository must
+    be owned by the organization, or a direct fork of a repository owned by the
+    organization.
+  parameters:
+    - description: Id of team.
+      in: path
+      name: teamId
+      required: true
+      type: integer
+    - description: Name of a organization.
+      in: path
+      name: owner
+      required: true
+      type: string
+    - description: Name of a repository.
+      in: path
+      name: repo
+      required: true
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer

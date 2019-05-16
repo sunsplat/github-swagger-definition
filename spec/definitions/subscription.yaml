@@ -1,0 +1,17 @@
+properties:
+  created_at:
+    description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+    type: string
+  ignored:
+    type: boolean
+  reason:
+    type: string
+  repository_url:
+    type: string
+  subscribed:
+    type: boolean
+  thread_url:
+    type: string
+  url:
+    type: string
+type: object

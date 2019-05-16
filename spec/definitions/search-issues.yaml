@@ -1,0 +1,65 @@
+properties:
+  items:
+    items:
+      properties:
+        assignee:
+          type: 'null'
+        body:
+          type: string
+        closed_at:
+          type: 'null'
+        comments:
+          type: integer
+        comments_url:
+          type: string
+        created_at:
+          type: string
+        events_url:
+          type: string
+        html_url:
+          type: string
+        id:
+          type: integer
+        labels:
+          items:
+            properties:
+              color:
+                type: string
+              name:
+                type: string
+              url:
+                type: string
+            type: object
+          type: array
+        labels_url:
+          type: string
+        milestone:
+          type: 'null'
+        number:
+          type: integer
+        pull_request:
+          properties:
+            diff_url:
+              type: 'null'
+            html_url:
+              type: 'null'
+            patch_url:
+              type: 'null'
+          type: object
+        score:
+          type: number
+        state:
+          type: string
+        title:
+          type: string
+        updated_at:
+          type: string
+        url:
+          type: string
+        user:
+          $ref: '#/definitions/user'
+      type: object
+    type: array
+  total_count:
+    type: integer
+type: object

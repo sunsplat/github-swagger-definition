@@ -1,0 +1,12 @@
+properties:
+  content:
+    type: string
+  encoding:
+    enum:
+      - utf-8
+      - base64
+  sha:
+    type: string
+  size:
+    type: integer
+type: object

@@ -1,0 +1,63 @@
+items:
+  properties:
+    assets:
+      items:
+        properties:
+          content_type:
+            type: string
+          created_at:
+            type: string
+          download_count:
+            type: integer
+          id:
+            type: integer
+          label:
+            type: string
+          name:
+            type: string
+          size:
+            type: integer
+          state:
+            type: string
+          updated_at:
+            type: string
+          uploader:
+            $ref: '#/definitions/user'
+          url:
+            type: string
+        type: object
+      type: array
+    assets_url:
+      type: string
+    author:
+      $ref: '#/definitions/user'
+    body:
+      type: string
+    created_at:
+      type: string
+    draft:
+      type: boolean
+    html_url:
+      type: string
+    id:
+      type: integer
+    name:
+      type: string
+    prerelease:
+      type: boolean
+    published_at:
+      type: string
+    tag_name:
+      type: string
+    tarball_url:
+      type: string
+    target_commitish:
+      type: string
+    upload_url:
+      type: string
+    url:
+      type: string
+    zipball_url:
+      type: string
+  type: object
+type: array

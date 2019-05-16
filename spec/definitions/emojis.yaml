@@ -1,0 +1,4 @@
+additionalProperties:
+  description: A URL for an image representing this emoji
+  type: string
+type: object

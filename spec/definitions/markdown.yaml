@@ -1,0 +1,8 @@
+properties:
+  context:
+    type: string
+  mode:
+    type: string
+  text:
+    type: string
+type: object

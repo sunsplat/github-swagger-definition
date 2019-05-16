@@ -1,0 +1,6 @@
+properties:
+  force:
+    type: boolean
+  sha:
+    type: string
+type: object

@@ -1,0 +1,87 @@
+description: A user or organization
+properties:
+  avatar_url:
+    type: string
+  bio:
+    type: string
+  blog:
+    description: The website URL from the profile page
+    type: string
+  collaborators:
+    type: integer
+  company:
+    type: string
+  created_at:
+    description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+    type: string
+  disk_usage:
+    type: integer
+  email:
+    description: >-
+      Note: The returned email is the user’s publicly visible email address (or
+      null if the user has not specified a public email address in their
+      profile).
+    type: string
+  followers:
+    type: integer
+  followers_url:
+    type: string
+  following:
+    type: integer
+  following_url:
+    type: string
+  gists_url:
+    type: string
+  gravatar_id:
+    type: string
+  hireable:
+    type: boolean
+  html_url:
+    type: string
+  id:
+    type: integer
+  location:
+    type: string
+  login:
+    description: The account username
+    type: string
+  name:
+    description: The full account name
+    type: string
+  organizations_url:
+    type: string
+  owned_private_repos:
+    type: integer
+  plan:
+    properties:
+      collaborators:
+        type: integer
+      name:
+        type: string
+      private_repos:
+        type: integer
+      space:
+        type: integer
+    type: object
+  private_gists:
+    type: integer
+  public_gists:
+    type: integer
+  public_repos:
+    type: integer
+  starred_url:
+    type: string
+  subscriptions_url:
+    type: string
+  total_private_repos:
+    type: integer
+  type:
+    enum:
+      - User
+      - Organization
+  updated_at:
+    description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+    type: string
+  url:
+    type: string
+type: object

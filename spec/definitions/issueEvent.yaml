@@ -1,0 +1,92 @@
+properties:
+  actor:
+    $ref: '#/definitions/actor'
+  commit_id:
+    type: string
+  created_at:
+    description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+    type: string
+  event:
+    type: string
+  issue:
+    properties:
+      assignee:
+        $ref: '#/definitions/user'
+      body:
+        type: string
+      closed_at:
+        description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+        type: string
+      comments:
+        type: integer
+      created_at:
+        description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+        type: string
+      html_url:
+        type: string
+      labels:
+        items:
+          properties:
+            color:
+              type: string
+            name:
+              type: string
+            url:
+              type: string
+          type: object
+        type: array
+      milestone:
+        properties:
+          closed_issues:
+            type: integer
+          created_at:
+            description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+            type: string
+          creator:
+            $ref: '#/definitions/user'
+          description:
+            type: string
+          due_on:
+            description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+            type: string
+          number:
+            type: integer
+          open_issues:
+            type: integer
+          state:
+            enum:
+              - open
+              - closed
+          title:
+            type: string
+          url:
+            type: string
+        type: object
+      number:
+        type: integer
+      pull_request:
+        properties:
+          diff_url:
+            type: string
+          html_url:
+            type: string
+          patch_url:
+            type: string
+        type: object
+      state:
+        enum:
+          - open
+          - closed
+      title:
+        type: string
+      updated_at:
+        description: 'ISO 8601 format: YYYY-MM-DDTHH:MM:SSZ'
+        type: string
+      url:
+        type: string
+      user:
+        $ref: '#/definitions/user'
+    type: object
+  url:
+    type: string
+type: object

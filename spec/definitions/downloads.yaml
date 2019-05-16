@@ -1,0 +1,3 @@
+items:
+  $ref: '#/definitions/download'
+type: array

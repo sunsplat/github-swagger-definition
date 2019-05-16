@@ -1,0 +1,14 @@
+properties:
+  assignee:
+    type: string
+  body:
+    type: string
+  labels:
+    items:
+      type: string
+    type: array
+  milestone:
+    type: number
+  title:
+    type: string
+type: object

@@ -1,0 +1,220 @@
+delete:
+  description: >
+    Remove team membership.
+
+    In order to remove a membership between a user and a team, the authenticated
+    user must have 'admin' permissions to the team or be an owner of the
+    organization that the team is associated with. NOTE: This does not delete
+    the user, it just removes their membership from the team.
+  parameters:
+    - description: Id of team.
+      in: path
+      name: teamId
+      required: true
+      type: integer
+    - description: Name of a member.
+      in: path
+      name: username
+      required: true
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '204':
+      description: Team member removed.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+get:
+  description: >
+    Get team membership.
+
+    In order to get a user's membership with a team, the authenticated user must
+    be a member of the team or an owner of the team's organization.
+  parameters:
+    - description: Id of team.
+      in: path
+      name: teamId
+      required: true
+      type: integer
+    - description: Name of a member.
+      in: path
+      name: username
+      required: true
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '200':
+      description: User is a member.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+      schema:
+        $ref: '#/definitions/teamMembership'
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+    '404':
+      description: User has no membership with team
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+put:
+  description: >
+    Add team membership.
+
+    In order to add a membership between a user and a team, the authenticated
+    user must have 'admin' permissions to the team or be an owner of the
+    organization that the team is associated with.
+
+
+    If the user is already a part of the team's organization (meaning they're on
+    at least one other team in the organization), this endpoint will add the
+    user to the team.
+
+
+    If the user is completely unaffiliated with the team's organization (meaning
+    they're on none of the organization's teams), this endpoint will send an
+    invitation to the user via email. This newly-created membership will be in
+    the 'pending' state until the user accepts the invitation, at which point
+    the membership will transition to the 'active' state and the user will be
+    added as a member of the team.
+  parameters:
+    - description: Id of team.
+      in: path
+      name: teamId
+      required: true
+      type: integer
+    - description: Name of a member.
+      in: path
+      name: username
+      required: true
+      type: string
+    - description: Is used to set specified media type.
+      in: header
+      name: Accept
+      type: string
+  responses:
+    '200':
+      description: Team member added.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+      schema:
+        $ref: '#/definitions/teamMembership'
+    '403':
+      description: >
+        API rate limit exceeded. See
+        http://developer.github.com/v3/#rate-limiting
+
+        for details.
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+    '422':
+      description: 'If you attempt to add an organization to a team, you will get this.'
+      headers:
+        X-GitHub-Media-Type:
+          description: |
+            You can check the current version of media type in responses.
+          type: string
+        X-GitHub-Request-Id:
+          type: integer
+        X-RateLimit-Limit:
+          type: integer
+        X-RateLimit-Remaining:
+          type: integer
+        X-RateLimit-Reset:
+          type: integer
+      schema:
+        $ref: '#/definitions/organizationAsTeamMember'

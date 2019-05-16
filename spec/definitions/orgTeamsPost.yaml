@@ -1,0 +1,15 @@
+properties:
+  name:
+    type: string
+  permission:
+    enum:
+      - pull
+      - push
+      - admin
+  repo_names:
+    items:
+      type: string
+    type: array
+required:
+  - name
+type: object

@@ -1,0 +1,10 @@
+properties:
+  all:
+    items:
+      type: integer
+    type: array
+  owner:
+    items:
+      type: integer
+    type: array
+type: object

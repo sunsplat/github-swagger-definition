@@ -1,0 +1,6 @@
+properties:
+  repositories:
+    items:
+      $ref: '#/definitions/repo'
+    type: array
+type: object

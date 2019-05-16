@@ -1,0 +1,14 @@
+properties:
+  created_at:
+    type: string
+  ignored:
+    type: boolean
+  reason:
+    type: object
+  subscribed:
+    type: boolean
+  thread_url:
+    type: string
+  url:
+    type: string
+type: object
